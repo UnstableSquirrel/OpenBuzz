@@ -76,8 +76,15 @@
     }
 
     .content-container > a {
-        text-decoration: none;
-        
+        text-decoration: none !important;
+    }
+
+    .Item > a {
+        text-decoration: none !important;
+    }
+    
+    .token-summary > a:nth-child(1) {
+        text-decoration: none !important;
     }
 
     .Item {
