@@ -18,7 +18,7 @@
 
   <div class="container">
     <h2>Your Project Informations</h2>
-    <form action="" method="POST">
+    <form action="https://formsubmit.co/52ecb6ad730758961cb87dbfb4cd342f" method="POST">
         <input type="email" name="E-Mail" id="email" placeholder="E-Mail" required>
         <input type="text" name="Name" id="name" placeholder="Project Name" required>
         <input type="text" name="Chain" id="chain" placeholder="Network" required>
