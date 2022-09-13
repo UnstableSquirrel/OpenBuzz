@@ -49,31 +49,31 @@
           <p>
             OpenBuzz is fully decentralized and censorless. 
             Every BuzzBoard is dedicated to a community where you can engage and interact by posting, 
-            liking or disliking messages from various users.
+            liking or disliking messages from other users.
           </p>
         </div>
         <div class="info-card">
           <img src="/icons/metabolism.png" alt="Burn Tokens">
           <p>Burn tokens with each message</p>
           <p>
-            Each message on OpenBuzz costs a fee, that fee is used to buy and burn designated tokens.
-            With this mechanism projects can increase their liquidity and simultaneously decrease the max supply.
+            Each message on OpenBuzz costs a fee which is used to buy and burn designated tokens.
+            With this mechanism, projects can increase their liquidity and simultaneously decrease their supply.
           </p>
         </div>
         <div class="info-card">
           <img src="/icons/lottery.png" alt="Ticket">
-          <p>Each message is also a price pool ticket</p>
+          <p>Each message is also a prize pool ticket</p>
           <p>
             As an additional incentive for users to post messages, each message id on the board is added into a Chainlink VRF roll
-            and can win the current pool price, which gets distributed after every cycle. 
+            and can win the current pool prize, which gets distributed after every cycle. 
           </p>
         </div>
         <div class="info-card">
           <img src="/icons/winner.png" alt="Rating Pot">
           <p>One winner is selected on every cycle</p>
           <p>
-            A cycle is over when 100 messages are posted. The board then gets reseted to accept new posts. Users can win
-            a price pool every cycle, the more messages they type, the more tickets they get.
+            A cycle is over when 100 messages are posted. The board is then reset to accept new posts. Users can win
+            a prize pool every cycle, the more messages they type, the more tickets they get.
           </p>
         </div>
       </div>
@@ -81,8 +81,8 @@
       <div class="second-info-container">
         <p>Help your project while having fun</p>
         <p>
-          With each message you post on a token BuzzBoard, OpenBuzz auto buys and burns that designated token, 
-          therefore decreases the total supply of the token while also increasing the liquidity backing of it.
+          With each message you post on a token's BuzzBoard, OpenBuzz auto buys and burns that designated token, 
+          therefore decreases the total supply while also increasing the liquidity backing of it.
         </p>
       </div>
       
@@ -113,10 +113,10 @@
       </div>
 
       <p>
-        BuzzBoards are message boards that are individually created for tokens to help reduce the total amount of their circulating supply, by burning them. 
+        BuzzBoards are message boards that are individually created for tokens with the lottery and burn mechanism. 
       </p>
       <p>
-        Here you can select your favorite BuzzBoard, post messages, burn tokens, and win price pools in the process.
+        Select your favorite BuzzBoard, post messages, burn tokens, and win price pools in the process.
       </p>
   
       <div class="buzzboard-container">
@@ -163,21 +163,12 @@
         </h1>
         <br>
         <p>
-          If you want to create a BuzzBoard for a certain token, so that community members can chat and burn some of it
-          with each post, you can apply with your project details down below.
+          Reach out to us and let's make a BuzzBoard for your project! Each BuzzBoard is customizable and
+          can reward different prizes, adjust prize-per-message, change Buzz-and-Burn rates, and more!
         </p>
         <Form/>
         <p>
-          BuzzBoards can be customized based on your preferences.
-        </p>
-        <p>
-          The price per message, likes aswell as dislikes is adjustable, and even the layout style of the Buzzboard itself.
-        </p>
-        <p>
           Once your application is approved, we will create a custom contract based on your input, deploy it and integrate it with our frontend.
-        </p>
-        <p>
-          Once integrated with OpenBuzz, your BuzzBoard will be available in the BuzzBoards section for users to enter.
         </p>
         <div>
           <p><span>E-Mail:</span> Your or your project's email address.</p>
@@ -186,7 +177,7 @@
           <p><span>Contract Address:</span> The contract address of your project.</p>
           <p><span>Swap Protocol:</span> The swap protocol you want us to use to buy and burn your project's tokens.</p>
         </div>
-        <p>Reach out to us with your project informations, and we'll contact you about a potential listing on OpenBuzz.</p>
+        <p>After reviewing your application, we'll contact you about a potential listing.</p>
       </div>
   
     </section>

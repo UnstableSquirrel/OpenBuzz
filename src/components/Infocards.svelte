@@ -14,8 +14,8 @@
                 <div>
                     <h1>Community Centered</h1>
                     <p>
-                      Our main focus is on communities. They are the cornerstone of a strong project. We want to give them the opportunity
-                      to help and strengthen their project, and simultaneously having fun by posting/reading posts on OpenBuzz while doing that.
+                      Our main focus is on serving communities, the cornerstone of a all great projects. We want to give your community 
+                      a place to chat and shill while burning tokens.
                     </p>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div>
                     <h1>Post For Fun</h1>
                     <p>
-                       Whether it's copypasta, non financial advice or just shitposting, post whatever you like. Users can decide for themselves what they like and what they don't, 
+                       Whether it's pasta, not financial advice or plain old shitposting, OpenBuzz is here for you. Users can decide what they like and what they don't 
                        using the reaction functions that determine the rank of a post.
                     </p>
                 </div>
@@ -44,8 +44,8 @@
                 <div>
                     <h1>Win With Each Message</h1>
                     <p>
-                       To make posting on OpenBuzz even more attractive to users, every wallet that makes a post gets a lottery ticket and is thrown into a 
-                       drawing, then has the opportunity to win the prize pool that is awarded every 100 messages. 
+                       To make posting on OpenBuzz even more attractive, every post is entered into a 
+                       drawing, then has the opportunity to win the prize pool, awarded after the 100th message is posted. 
                     </p>
                 </div>
             </div>
@@ -59,8 +59,8 @@
                 <div>
                     <h1>Fair And Provable Randomness</h1>
                     <p>
-                       To ensure everything is fair and decentralized, all random rolls are made using Chainlink's verifable random number generator for the blockchain.
-                       Each cycle the price pool winner's wallet address will be displayed on the front of the board so that the transaction can be viewed by everyone.  
+                       To ensure everything is fair and decentralized, all random rolls are made using Chainlink's verifable random number generator.
+                       At the start of a new cycle the previous prize pool winner's wallet address will be displayed on the top of the board so the transaction can be seen by everyone.  
                     </p>
                 </div>
             </div>
