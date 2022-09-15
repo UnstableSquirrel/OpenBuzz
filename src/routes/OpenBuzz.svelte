@@ -3,7 +3,6 @@
     import Form from "../components/Form.svelte"
     import Infocards from "../components/Infocards.svelte"
     import Newest from "../components/Newest.svelte"
-    import Ticket from "../components/Ticket.svelte"
 
 </script>
   
@@ -182,8 +181,6 @@
       </div>
   
     </section>
-
-    <Ticket/>
   
     <!-- <section class="section-6">
       <div>
