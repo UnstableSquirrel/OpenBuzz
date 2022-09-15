@@ -160,6 +160,9 @@
   //   gasLimitForChar = 3000000
   // }
 
+  let Tickets = []
+  $: Tickets
+
   async function getMessages() {
       // @ts-ignore
       const web3 = new Web3(window.ethereum)
@@ -187,16 +190,20 @@
             "Message": info.message,
             "Ratio": parseInt(info.likes) - parseInt(info.dislikes),
           })
-          // console.log(Messages)
+
+          if(info.adr == web3.utils.toChecksumAddress(wallet)) {
+            Tickets.push(i)
+          }
+          // console.log()
         }
         Messages.sort(function(a, b) {
           return b.Ratio - a.Ratio
         })
         Messages = Messages
-        // console.log(Messages)
+        Tickets = Tickets
+        // console.log(Tickets)
       }
   }
-
 
   // getMessages()
 
@@ -271,6 +278,13 @@
   $: totalMessages = Messages.length
 // }
 
+  let loaded = false
+  $: loaded
+
+  // $: wallet = window.localStorage.getItem("userAddress")
+
+
+
 </script>
 
 <main>
@@ -281,6 +295,9 @@
         <div>
           <a href="/"><img src="OpenBuzz.png" alt="OpenBuzz"></a>
         </div>
+        <!-- <div class="links">
+          <a href="/">Back</a>
+        </div> -->
       </div>
 
       {#if wallet != null }
@@ -318,8 +335,19 @@
 
   <div class="last-winner-container">
     <div class="last-winner">
-      <h1>Last Winner: </h1>
+      <h1>Last Winner Address: </h1>
       <a href="https://polygonscan.com/address/{winner}"><p>{winner}</p></a>
+    </div>
+  </div>
+
+  <div class="last-winner-container">
+    <div class="last-winner">
+      <h1>Last Winning Ticket: </h1>
+      <p style="
+        font-size: 20px;
+        font-weight: 700;
+        color: rgb(255, 251, 0);
+        text-shadow: -1px -1px 0 #17314f, 1px -1px 0 #17314f, -1px 1px 0 #17314f, 1px 1px 0 #17314f;">None yet</p>
     </div>
   </div>
 
@@ -407,6 +435,31 @@
 
   </div>
 
+
+
+
+
+  <div id="MyTickets" class="Tickets">
+
+    <h1>My Tickets</h1>
+
+    <div>
+    {#each Tickets as ticket}
+      <div class="ticket-container">
+        <div class="ticket">
+            <h1>BuzzTicket</h1>
+            <h2>#{ticket}</h2>
+        </div>
+      </div>
+    {/each}
+    </div>
+
+  </div>
+
+
+
+
+
   <div id="modal-container" class="{"modal " + Modal}">
     <div class="modal-content">
         <span on:click="{() => Modal = "close"}" class="close-button">×</span>
@@ -423,6 +476,10 @@
 
     </div>
   </div>
+
+
+
+
 
   <div class="info-section">
     <h1>Additional Information</h1>
@@ -482,8 +539,8 @@
       }
 
       .logo-container {
-        display: flex;
-        justify-content: center;
+        display: grid;
+        justify-items: center;
         margin: 50px 15px;
       }
 
@@ -520,7 +577,25 @@
         margin: 0px 0px 20px 0px;
       }
 
+      .links {
+        display: grid; 
+        align-items: left; 
+        justify-items: left; 
+      }
 
+      .links > a {
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        text-shadow: -1px -1px 0 #17314f, 1px -1px 0 #17314f, -1px 1px 0 #17314f, 1px 1px 0 #17314f;
+        text-align: left;
+        margin: 5px 0px 0px 0px;
+      }
+
+      .links > a:hover {
+        color: #0095ff;
+        text-decoration: none;
+      }
 
 
 
@@ -551,6 +626,18 @@
         background: linear-gradient(90deg, #0094FD 0%, #0094FD 20%, #00D2EA 40%, #00E7B9 60%, #93F489 80%, #F9F871 100%);
       }
 
+      div.last-winner-container:nth-child(4) {
+        border-style: solid;
+        border-color: #303A4E;
+        border-width: 5px 5px 0px 5px;
+      }
+
+      div.last-winner-container:nth-child(5) {
+        border-style: solid;
+        border-color: #303A4E;
+        border-width: 0px 5px 5px 5px;
+      }
+
       .last-winner {
         text-align: center;
       }
@@ -563,7 +650,7 @@
       }
 
       .last-winner > a > p {
-        font-size: 15px;
+        font-size: 20px;
         font-weight: 700;
         color: rgb(255, 251, 0);
         text-shadow: -1px -1px 0 #17314f, 1px -1px 0 #17314f, -1px 1px 0 #17314f, 1px 1px 0 #17314f;
@@ -571,8 +658,6 @@
       }
 
       .last-winner > a:hover > p {
-        font-size: 15px;
-        font-weight: 700;
         color: rgb(255, 253, 151);
         text-shadow: none;
       }
@@ -922,5 +1007,118 @@ span {
   color: #0095ff;
   font-size: 17px;
 }
+
+
+
+
+
+
+
+
+
+
+/********************************* Ticket ********************************************************************/
+
+.Tickets {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin: 0px;
+  padding: 100px 0px;
+  background-color: slateblue;
+  border: 5px solid #303A4E;
+}
+
+.Tickets > div {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin: 50px 0px;
+  grid-template-columns: auto auto auto auto;
+  text-align: center;
+}
+
+.Tickets > h1 {
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  text-shadow: rgb(23 49 79) -1px -1px 0px, rgb(23 49 79) 1px -1px 0px, rgb(23 49 79) -1px 1px 0px, rgb(23 49 79) 1px 1px 0px;
+  margin: 0px 0px 50px 0px;
+}
+
+.ticket-container {
+    background-image: linear-gradient(45deg, transparent 75%, #0094FD 75%), linear-gradient(135deg, transparent 75%, #00D2EA 75%), linear-gradient(-45deg, transparent 75%, #00E7B9 75%), linear-gradient(-135deg, transparent 75%, #93F489 75%);
+    background-color: #F9F871 ;
+    /* border: 1px solid white; */
+    width: 150px;
+    height: 60px;
+    padding: 5px;
+    margin: 10px 20px;
+    /* box-shadow: 0px 9px 30px 0px rgb(219, 194, 224); */
+    box-shadow: 0px 5px 30px 0px rgb(255, 239, 0);
+}
+
+.ticket {
+    border: 2px dashed #c903ae;
+    margin: -45px 5px 0px 5px;
+    padding: 5px;
+}
+
+.ticket > h1 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    text-shadow: -1px -1px 0 #0094fd, 1px -1px 0 #0094fd, -1px 1px 0 #0094fd, 1px 1px 0 #0094fd;
+    margin: 0px 0px 0px 0px;
+    padding: 5px 0px 0px 0px;
+}
+
+.ticket > h2 {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    text-shadow: -1px -1px 0 #0094fd, 1px -1px 0 #0094fd, -1px 1px 0 #0094fd, 1px 1px 0 #0094fd;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ticket-container::before {
+    content: '';
+    padding: 5px 55px 19px 137px;
+    margin: 0px 0px 0px -21px;
+    background-size: 15px 10px;
+    background-repeat: repeat-y;
+    background-position: 0 0, 0 0, 100% 0, 100% 0;
+    background-image: linear-gradient(45deg, transparent 75%, #0094FD 75%), linear-gradient(135deg, transparent 75%, #00D2EA 75%), linear-gradient(-45deg, transparent 75%, #00E7B9 75%), linear-gradient(-135deg, transparent 75%, #93F489 75%);
+    font-size: 41px;
+    text-align: center;
+}
+
+.ticket-container:hover, .ticket-container::before {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+@media (min-width: 610px) and (max-width: 815px) {
+  .Tickets > div {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media (min-width: 410px) and (max-width: 609px) {
+  .Tickets > div {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 409px) {
+  .Tickets > div {
+    grid-template-columns: auto;
+  }
+}
+/****************************************************************************************************************/
 
 </style>
